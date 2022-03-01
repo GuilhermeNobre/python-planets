@@ -18,16 +18,16 @@ YELLOW = (255,255,0)
 BLUE = (100, 149, 237)
 RED = (188, 39, 50)
 DARK_GREY = (80, 78, 81)
+ORANGE = (180, 64, 16)
 
 FONT = pygame.font.SysFont("comicsans", 16)
 
 class Planet:
     AU = 149.6e6 * 1000 #Astronomic Units
     G = 6.67428e-11
-    SCALE = 180 / AU # 1AU = 100 pixels
+    SCALE = 75 / AU # 1AU = 100 pixels
     TIMESETP = 3600*24 # 1 day 
-    #
-
+    
     def __init__(self, x, y, radius, color, mass):
         self.x = x
         self.y = y
@@ -112,7 +112,9 @@ def main():
     venus = Planet(0.723 * Planet.AU, 0, 14, WHITE, 4.8685 * 10**24)
     venus.y_vel = -35.02 * 1000
 
-    planets = [sun, earth, mars, mercury, venus]
+    jupiter = Planet(-5.2 * Planet.AU, 0, 50, ORANGE, 1.898 * 10**27)
+    jupiter.y_vel = 13.07 * 1000
+    planets = [sun, earth, mars, mercury, venus, jupiter]
 
     while run:
         clock.tick(60)
